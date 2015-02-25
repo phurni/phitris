@@ -1,0 +1,64 @@
+---
+width: 360
+height: 730
+Margin:
+  width: 20
+  height: 20
+Play:
+  captions:
+    hold: Réserve
+    next: Prochain
+    score: Points
+    lines: Lignes
+    time: Durée
+    level: Niveau
+  tetrion_background: play_background.png
+  layout:
+    - - - !ruby/class 'Phitris::Margin'
+        - !ruby/class 'Phitris::Caption': score
+        - !ruby/class 'Phitris::Margin'
+        - !ruby/class 'Phitris::Caption': lines
+        - !ruby/class 'Phitris::Margin'
+        - !ruby/class 'Phitris::Caption': time
+        - !ruby/class 'Phitris::Margin'
+      - - !ruby/class 'Phitris::Margin'
+        - !ruby/class 'Phitris::Score'
+        - !ruby/class 'Phitris::Margin'
+        - !ruby/class 'Phitris::Lines'
+        - !ruby/class 'Phitris::Margin'
+        - !ruby/class 'Phitris::ElapsedTime'
+        - !ruby/class 'Phitris::Margin'
+      - - !ruby/class 'Phitris::Margin'
+      - - !ruby/class 'Phitris::Margin'
+        - !ruby/class 'Phitris::Board'
+        - !ruby/class 'Phitris::Margin'
+Tetromino:
+  image: square.png
+  I:
+    color: 0xFF00aaff
+  O:
+    color: 0xFF0080ff
+  J:
+    color: 0xFF4000ff
+  L:
+    color: 0xFF2040ff
+  S:
+    color: 0xFF4020ff
+  Z:
+    color: 0xFF8000ff
+  T:
+    color: 0xFF3030ff
+Value:
+  color: 0xFF000000
+  font: Verdana
+  size: 30
+  max_width: 100
+Caption:
+  color: 0xFFFFFFFF
+  font: Arial Black
+  size: 40
+  max_width: 100
+Board:
+  tetrion_border: 0x40334455
+  tetrion_background: 0x40FFEEAA
+  fixed_tetromino_alpha: 224
