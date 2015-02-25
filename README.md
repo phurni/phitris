@@ -1,6 +1,6 @@
 # PHITRIS
 
-![http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/All_5_free_tetrominoes.svg/200px-All_5_free_tetrominoes.svg.png]
+![tetrominos](http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/All_5_free_tetrominoes.svg/200px-All_5_free_tetrominoes.svg.png)
 
 A Tetris clone written in Ruby with the Gosu and Chingu libraries.
 
