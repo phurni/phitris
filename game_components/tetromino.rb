@@ -33,11 +33,11 @@ module Phitris
       count = 0
       count += 1 while fall
       game_state.reward(:hard_drop, count)
+      count
     end
 
     def soft_drop
-      fall
-      game_state.reward(:soft_drop)
+      fall.tap {|fallen| game_state.reward(:soft_drop) if fallen }
     end
 
     def shift_right
