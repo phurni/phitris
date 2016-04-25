@@ -61,6 +61,10 @@ module Phitris
         end
       end
     end
+
+    def complete_lines
+      lines.each_with_index.select {|line,index| line.all?}.map(&:last)
+    end
     
     def empty?
       !lines.any? {|line| line.any?}
