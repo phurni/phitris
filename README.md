@@ -48,9 +48,6 @@ Try running the game by passing a config file:
 
 ## To Do
 
-- The board internal representation of the playfield matrix should not be exposed
-  to the pluggables. Refactor this.
-  
 - Implement a real Welcome screen
 
 - Implement a configuration screen
