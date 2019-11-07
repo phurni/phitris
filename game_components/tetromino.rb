@@ -80,12 +80,6 @@ module Phitris
     end
     alias_method :draw, :draw_relative
     
-    def destroy!
-      # Explicitely remove us from input handling (should be handled by Chingu directly)
-      @parent.remove_input_client(self)
-      super
-    end
-    
     class << self
       def all
         [I,O,J,L,S,Z,T]
