@@ -36,12 +36,10 @@ module Phitris
       !tetromino_blocks.each_with_index.find {|tetromino_line, delta_y| tetromino_line.zip(lines[position.y+delta_y][position.x..-1]).find {|pair| pair.first && pair.last} }
     end
 
-    def fix(tetromino, options = {})
+    def fix(tetromino)
       tetromino.blocks.each_with_index do |tetromino_line, delta_y|
         lines[tetromino.position.y+delta_y][tetromino.position.x,tetromino_line.size] = tetromino_line.zip(lines[tetromino.position.y+delta_y][tetromino.position.x,tetromino_line.size]).map {|line| line.compact.first.tap {|color| color.alpha = @fixed_tetromino_alpha if color } }
       end
-      
-      collapse(options)
     end
 
     def collapse(options = {})

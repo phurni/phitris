@@ -22,7 +22,8 @@ module Phitris
       
       every(fall_delay, :name => :falling) do
         unless fall
-          board.fix(self, :fall_delay => fall_delay)
+          board.fix(self)
+          board.collapse(:fall_delay => fall_delay)
           destroy!
           game_state.place_new_tetromino
         end
