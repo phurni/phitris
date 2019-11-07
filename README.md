@@ -25,7 +25,7 @@ Pluggable behaviours (✔ Implemented, ✘ Not implemented):
   - ✘ [TGM](http://tetris.wikia.com/wiki/TGM_randomizer)
  - Line clearers
   - ✔ [Naive](http://tetris.wikia.com/wiki/Line_clear#Naive)
-  - ✘ [Sticky](http://tetris.wikia.com/wiki/Line_clear#Sticky)
+  - ✔ [Sticky](http://tetris.wikia.com/wiki/Line_clear#Sticky)
   - ✘ [Cascade](http://tetris.wikia.com/wiki/Line_clear#Cascade)
 
 **Plug your own, fork me**
