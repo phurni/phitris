@@ -1,7 +1,5 @@
-# PHITRIS: A Tetris clone using Chingu (Gosu) game lib
-# May 2014
-
-require 'chingu'
+# PHITRIS: A Tetris clone using DragonRuby
+# August 2023
 
 # helper that requires all ruby file in a directory
 def require_dir(dirpath, options = {})
