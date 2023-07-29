@@ -21,7 +21,7 @@ module Phitris
           RUBY
 
           # load all modules
-          Dir[File.join(options[:basedir] || '.', module_name, '*.rb')].each {|file| require file }
+          require_dir(File.join(options[:basedir] || '.', module_name))
         end
       end
     end
