@@ -20,7 +20,7 @@ module Phitris
   require_dir './game_components', first: %w{layout game_objects}
 
   # load game states
-  require_dir './game_states'
+  require 'game_states/play.rb' # FIXME: revert when all game states are converted to NF
 
   # The game window
   class Game < NightFury::Window
@@ -30,7 +30,7 @@ module Phitris
       load_config
       super(config[:width] || 500, config[:height] || 500, config[:fullscreen])
       
-      push_game_state(Menu)
+      push_game_state(Play)
     end
     
     def load_config
