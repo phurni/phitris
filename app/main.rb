@@ -1,11 +1,7 @@
 # PHITRIS: A Tetris clone using DragonRuby
 # August 2023
 
-# helper that requires all ruby file in a directory
-def require_dir(dirpath, options = {})
-  Array(options[:first]).each {|name| require File.join(dirpath, name) }
-  Dir[File.join(dirpath, '*.rb')].each {|file| require file }
-end
+require_relative 'lib/require_dir'
 
 # load meta components
 require_dir './lib'
