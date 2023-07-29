@@ -17,7 +17,7 @@ module Phitris
   plug :randomizers, :rotators, :line_clearers, modules: Config, basedir: './pluggables'
 
   # load game components (after pluggable modules, because some components references modules)
-  require_dir './game_components', first: %w{layout game_objects}
+  require 'game_components/layout'; require 'game_components/game_objects'  # FIXME: revert when all game components are converted to NF
 
   # load game states
   require 'game_states/play.rb' # FIXME: revert when all game states are converted to NF

@@ -12,10 +12,7 @@ module Phitris
     end
   end
   
-  class Tetrion < Chingu::BasicGameObject
-    traits :simple_sprite
-    include Chingu::Helpers::GFX
-
+  class Tetrion < NightFury::Sprite
     attr_reader :padding
     
     def initialize(options = {})
@@ -47,7 +44,7 @@ module Phitris
     def colors_and_image(tetrion_config)
       case tetrion_config
       when String
-        [nil, Gosu::Image[tetrion_config]]
+        [nil, tetrion_config]
       when nil
         [nil, nil]
       else
