@@ -17,7 +17,7 @@ module Phitris
         if hash
           self.config = hash
         else
-          (defined?(superclass.config) ? superclass.config : {}).merge(@config ||= {})
+          (superclass.method_defined?(:config) ? superclass.config : {}).merge(@config ||= {})
         end
       end
 
