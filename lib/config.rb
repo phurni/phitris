@@ -4,11 +4,11 @@ module Phitris
       klass.extend ClassMethods
       
       if klass.is_a? Class
-        klass.class_eval <<-RUBY
+        klass.class_eval do
           def config(hash = nil)
             self.class.config(hash)
           end
-        RUBY
+        end
       end
     end
     
