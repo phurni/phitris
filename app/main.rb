@@ -34,11 +34,6 @@ module Phitris
     end
     
     def load_config
-      config YAML.load_file(ARGV[0] || 'phitris.yml')
-    rescue Errno::ENOENT
-      STDERR.puts "Your config file is missing! #{ARGV[0]}" if ARGV[0]
-    rescue
-      STDERR.puts "Your config file is mangled! #{$!}"
     end
   end
 end
