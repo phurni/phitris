@@ -6,6 +6,9 @@ require 'lib/require_dir'
 # load meta components
 require_dir './lib'
 
+# load the NightFury game lib
+require_dir './night_fury', first: 'object'
+
 # namespace our program, a sane habit
 module Phitris
   
@@ -20,14 +23,13 @@ module Phitris
   require_dir './game_states'
 
   # The game window
-  class Game < Chingu::Window
+  class Game < NightFury::Window
     include Config
     
     def initialize
       load_config
       super(config[:width] || 500, config[:height] || 500, config[:fullscreen])
       
-      self.caption = config[:caption] || "PHItris"
       push_game_state(Menu)
     end
     
