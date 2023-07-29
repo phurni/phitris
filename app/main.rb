@@ -1,7 +1,7 @@
 # PHITRIS: A Tetris clone using DragonRuby
 # August 2023
 
-require_relative 'lib/require_dir'
+require 'lib/require_dir'
 
 # load meta components
 require_dir './lib'
