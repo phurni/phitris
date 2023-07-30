@@ -11,7 +11,7 @@ module Phitris
     def initialize(options = {})
       super(options = config.merge(options))
 
-      self.image = Gosu::Image[Tetromino.config[:image]]
+      self.image = NightFury::Image.from(Tetromino.config[:image])
       
       extend options[:line_clearer]
       @board_size = Point.new(*options[:board_size])

@@ -11,11 +11,11 @@ module Phitris
     end
     
     def inside_width
-      @inside_width ||= Tetromino.max_size*Gosu::Image[Tetromino.config[:image]].width
+      @inside_width ||= Tetromino.max_size*NightFury::Image.from(Tetromino.config[:image]).width
     end
 
     def inside_height
-      @inside_height ||= Tetromino.max_size*Gosu::Image[Tetromino.config[:image]].height
+      @inside_height ||= Tetromino.max_size*NightFury::Image.from(Tetromino.config[:image]).height
     end
     
     def draw
