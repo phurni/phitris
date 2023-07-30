@@ -1,7 +1,7 @@
 module Phitris
   class Board < Tetrion
-    traits :timer
-    include Chingu::Helpers::InputClient
+    #TODO: traits :timer
+    #TODO: include Chingu::Helpers::InputClient
     include Config
 
     config board_size: [10,20], fixed_tetromino_alpha: 192, tetrion_border: 0xFF443399, tetrion_background: 0xFF8090a0, tetrion_padding: 10, line_clearer: Phitris::LineClearers.all.first

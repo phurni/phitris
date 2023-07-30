@@ -1,7 +1,7 @@
 module Phitris
-  class Tetromino < Chingu::BasicGameObject
-    traits :simple_sprite, :timer
-    include Chingu::Helpers::InputClient
+  class Tetromino < NightFury::GameObject
+    #TODO: traits :simple_sprite, :timer
+    #TODO: include Chingu::Helpers::InputClient
     include Config
     
     config image: 'media/block.png', rotator: Phitris::Rotators.all.first, randomizer: Phitris::Randomizers.all.first
@@ -20,7 +20,7 @@ module Phitris
       place_on_board
       self.x, self.y = @board.origin.x, @board.origin.y
       
-      every(fall_delay, :name => :falling) do
+      0.times do #TODO: every(fall_delay, :name => :falling) do
         unless fall
           board.fix(self)
           board.collapse(:fall_delay => fall_delay)

@@ -1,6 +1,6 @@
 module Phitris
-  class Play < Chingu::GameState
-    trait :timer
+  class Play < NightFury::GameState
+    #TODO: trait :timer
     include Config
     include Layout
     
@@ -28,7 +28,7 @@ module Phitris
     
     def initialize
       super
-      self.input = { :p => Chingu::GameStates::Pause, [:q, :escape] => :pop_game_state, :h => :hold }
+      #TODO: self.input = { :p => Chingu::GameStates::Pause, [:q, :escape] => :pop_game_state, :h => :hold }
       
       # Create the window tetrion
       WindowTetrion.create(config)
@@ -59,10 +59,10 @@ module Phitris
       # Does it fit on the board?
       if @current_tetromino.fit?
         # Yep, tie the input controls
-        @current_tetromino.input = { :left => :shift_left, :right => :shift_right, :down => :soft_drop, :up => :hard_drop, :space => :rotate_right, :m => :rotate_right, :n => :rotate_left }
+        #TODO: @current_tetromino.input = { :left => :shift_left, :right => :shift_right, :down => :soft_drop, :up => :hard_drop, :space => :rotate_right, :m => :rotate_right, :n => :rotate_left }
       else
         # Nope, game over!
-        push_game_state GameOver
+        #TODO: push_game_state GameOver
       end
       
       @held = false
