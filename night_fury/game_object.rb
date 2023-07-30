@@ -10,8 +10,8 @@ module NightFury
 
     def initialize(options = {})
       super
-      self.image =  NightFury::Image.from(options[:image]) if options[:image]
-      self.color =  options[:color] ? NightFury::Color.from(options[:color]) : NightFury::Color::WHITE
+      self.image =  options[:image] if options[:image]
+      self.color =  options[:color] || NightFury::Color::WHITE
       self.x =      options[:x] || 0
       self.y =      options[:y] || 0
       self.width =  options[:width] || 0
@@ -20,6 +20,14 @@ module NightFury
 
     def destroy!
       $current_state.remove_game_object(self)
+    end
+
+    def image=(object)
+      @image = NightFury::Image.from(object)
+    end
+
+    def color=(object)
+      @color = NightFury::Color.from(object)
     end
 
     def setup(args)
