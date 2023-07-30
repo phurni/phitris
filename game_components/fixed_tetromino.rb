@@ -18,10 +18,10 @@ module Phitris
       @inside_height ||= Tetromino.max_size*NightFury::Image.from(Tetromino.config[:image]).height
     end
     
-    def draw
+    def draw(args)
       super
       if @tetromino
-        @tetromino.draw_relative(x+padding+(inside_width-@tetromino.width)/2, y+padding+(inside_height-@tetromino.height)/2)
+        @tetromino.draw_at(args, x+padding+(inside_width-@tetromino.width)/2, y+padding+(inside_height-@tetromino.height)/2)
       end
     end
     

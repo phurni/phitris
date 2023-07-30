@@ -8,7 +8,7 @@ module NightFury
     end
 
     attr_reader :red, :green, :blue, :alpha
-    attr_reader :to_hash
+    attr_reader :to_hash, :to_a
 
     protected def initialize(*args)
       if args.size == 1
@@ -18,6 +18,7 @@ module NightFury
         @alpha, @red, @green, @blue = args
       end
       @to_hash = {r: @red, g: @green, b: @blue, a: @alpha}
+      @to_a = [@alpha, @red, @green, @blue]
     end
 
     # Warning: these constants are declared AFTER the `initialize` method because DR will directly call `new` even before the end of the class declaration.

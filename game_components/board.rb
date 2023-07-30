@@ -68,13 +68,13 @@ module Phitris
       !lines.any? {|line| line.any?}
     end
     
-    def draw
+    def draw(args)
       super
       lines.each_with_index do |line, pos_y|
         line.each_with_index do |block, pos_x|
           next unless block
           self.color = block
-          draw_relative(padding+pos_x*image.width, padding+pos_y*image.height)
+          args.outputs.sprites << [*to_draw_rect(padding+pos_x*image.width, padding+pos_y*image.height, image.width, image.height), image.path, 0, *color.to_a]
         end
       end
     end

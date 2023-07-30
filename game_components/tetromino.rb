@@ -70,16 +70,20 @@ module Phitris
       blocks.size*image.height
     end
 
-    def draw_relative(x=0, y=0, zorder=0, factor_x=0, factor_y=0)
+    def draw(args)
+      draw_at(args, x, y)
+    end
+
+    def draw_at(args, x, y)
+      # maybe create a render_target in `setup` so that we don't have to redraw each block at each frame but only the prepared render_target!
       blocks.each_with_index do |line, pos_y|
         next if position.y+pos_y < 0
         line.each_with_index do |block, pos_x|
           next unless block
-          super(x+(position.x+pos_x)*image.width, y+(position.y+pos_y)*image.height, zorder, factor_x, factor_y)
+          args.outputs.sprites << [*to_draw_rect(x+(position.x+pos_x)*image.width, y+(position.y+pos_y)*image.height, image.width, image.height), image.path, 0, *color.to_a]
         end
       end
     end
-    alias_method :draw, :draw_relative
     
     class << self
       def all
