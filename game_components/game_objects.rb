@@ -12,7 +12,7 @@ module Phitris
     end
   end
   
-  class Tetrion < NightFury::Sprite
+  class Tetrion < NightFury::GameObject
     attr_reader :padding
     
     def initialize(options = {})
@@ -23,12 +23,12 @@ module Phitris
       @padding = options[:tetrion_padding] || 0
     end
     
-    def draw
-      fill_gradient(:rect => [x,y,width,height], :from => @border_colors.first, :to => @border_colors.last, :zorder => zorder-1) if @border_colors
-      @border_image.draw(x, y, zorder-1, width.to_f/@border_image.width.to_f, height.to_f/@border_image.height.to_f, Gosu::Color::WHITE, :default) if @border_image
+    def draw(args)
+      args.outputs.solids << to_draw_rect(x,y,width,height).rect.to_hash.merge(@border_colors.first.to_hash) if @border_colors
+      args.outputs.sprites << [*to_draw_rect(x, y, @border_image.width, @border_image.height), @border_image.path] if @border_image
       
-      fill_gradient(:rect => [x+padding,y+padding,inside_width,inside_height], :from => @background_colors.first, :to => @background_colors.last, :zorder => zorder-1) if @background_colors
-      @background_image.draw(x+padding, y+padding, zorder-1, inside_width.to_f/@background_image.width.to_f, inside_height.to_f/@background_image.height.to_f, Gosu::Color::WHITE, :default) if @background_image
+      args.outputs.solids << to_draw_rect(x+padding,y+padding,inside_width,inside_height).rect.to_hash.merge(@background_colors.first.to_hash) if @background_colors
+      args.outputs.sprites << [*to_draw_rect(x+padding, y+padding, @background_image.width, @background_image.height), @background_image.path] if @background_image
     end
     
     def width
@@ -44,12 +44,13 @@ module Phitris
     def colors_and_image(tetrion_config)
       case tetrion_config
       when String
-        [nil, tetrion_config]
+        [nil, NightFury::Image.new(tetrion_config)]
       when nil
         [nil, nil]
       else
         colors = Array(tetrion_config)
         colors *= 2 if colors.size == 1
+        colors.map! {|color| NightFury::Color.from(color) }
         [colors, nil]
       end
     end

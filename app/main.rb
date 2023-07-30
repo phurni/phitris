@@ -7,7 +7,7 @@ require 'lib/require_dir'
 require_dir './lib'
 
 # load the NightFury game lib
-require_dir './night_fury', first: 'object'
+require_dir './night_fury', first: 'game_object'
 
 # namespace our program, a sane habit
 module Phitris
