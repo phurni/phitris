@@ -4,7 +4,7 @@ module Phitris
     include Chingu::Helpers::InputClient
     include Config
     
-    config image: 'block.png', rotator: Phitris::Rotators.all.first, randomizer: Phitris::Randomizers.all.first
+    config image: 'media/block.png', rotator: Phitris::Rotators.all.first, randomizer: Phitris::Randomizers.all.first
     
     attr_reader :board, :position
     
