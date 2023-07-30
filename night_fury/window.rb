@@ -1,7 +1,16 @@
 module NightFury
-  class Window < Object
+  class Window < GameState
+    attr_reader :width, :height
+
+    def initialize(width, height, fullscreen, options = {})
+      @width = width
+      @height = height
+      $window = self
+      super(options)
+    end
+
     def push_game_state(state)
-      $current_state = state.new
+      state.new
     end
 
     def show
