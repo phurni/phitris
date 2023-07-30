@@ -44,7 +44,7 @@ module Phitris
     def colors_and_image(tetrion_config)
       case tetrion_config
       when String
-        [nil, NightFury::Image.new(tetrion_config)]
+        [nil, NightFury::Image.from(tetrion_config)]
       when nil
         [nil, nil]
       else

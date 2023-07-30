@@ -10,8 +10,8 @@ module NightFury
 
     def initialize(options = {})
       super
-      self.image =  options[:image] if options[:image]
-      self.color =  options[:color] || NightFury::Color::WHITE
+      self.image =  NightFury::Image.from(options[:image]) if options[:image]
+      self.color =  options[:color] ? NightFury::Color.from(options[:color]) : NightFury::Color::WHITE
       self.x =      options[:x] || 0
       self.y =      options[:y] || 0
       self.width =  options[:width] || 0
