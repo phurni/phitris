@@ -1,7 +1,4 @@
 module NightFury
-  class Sprite < Object
-    def self.create(*options, &block)
-      new(*options, &block)
-    end
+  class Sprite < GameObject
   end
 end
