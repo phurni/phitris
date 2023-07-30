@@ -59,7 +59,7 @@ module Phitris
     end
     
     def name
-      Chingu::Inflector.demodulize self.class
+      self.class.name.split("::").last
     end
     
     def width
