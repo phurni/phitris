@@ -17,10 +17,10 @@ module Phitris
   plug :randomizers, :rotators, :line_clearers, modules: Config, basedir: './pluggables'
 
   # load game components (after pluggable modules, because some components references modules)
-  require 'game_components/layout'; require 'game_components/game_objects'  # FIXME: revert when all game components are converted to NF
+  require_dir './game_components', first: %w{layout game_objects}
 
   # load game states
-  require 'game_states/test.rb' # FIXME: revert when all game states are converted to NF
+  require 'game_states/play.rb' # FIXME: revert when all game states are converted to NF
 
   # The game window
   class Game < NightFury::Window
@@ -30,7 +30,7 @@ module Phitris
       load_config
       super(config[:width] || 500, config[:height] || 500, config[:fullscreen])
       
-      push_game_state(Test)
+      push_game_state(Play)
     end
     
     def load_config
