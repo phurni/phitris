@@ -1,15 +1,16 @@
-require 'singleton'
-
 module Phitris
   module Randomizers
     class Random
-      include Singleton
       include Config
 
       def self.name
         config[:display_name] || "Random Generator"
       end
       
+      def self.instance
+        @instance ||= new
+      end
+
       def initialize
         @tetrominos = Tetromino.all
         @bag = []
