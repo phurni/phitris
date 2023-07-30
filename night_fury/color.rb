@@ -3,7 +3,7 @@ module NightFury
   class Color
     # Create color from this method so that we can implement some caching in the future
     def self.from(*args)
-      return args.first if args.first.is_a? self.class
+      return args.first if args.first.is_a? self
       new(*args)
     end
 

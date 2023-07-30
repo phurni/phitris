@@ -2,7 +2,7 @@ module NightFury
   class Image
     # Create image from this method so that we can implement some caching in the future
     def self.from(object)
-      return object if object.is_a? self.class
+      return object if object.is_a? self
       new(object)
     end
 
