@@ -9,10 +9,6 @@ module NightFury
       super(options)
     end
 
-    def push_game_state(state)
-      state.new
-    end
-
     def show
     end
   end

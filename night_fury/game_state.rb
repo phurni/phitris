@@ -25,6 +25,14 @@ module NightFury
       @game_objects.delete(object)
     end
 
+    def push_game_state(state)
+      state.new
+    end
+
+    def pop_game_state
+      $gtk.request_quit
+    end
+
     protected
 
     def setup(args)
