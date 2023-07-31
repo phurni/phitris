@@ -46,5 +46,8 @@ module NightFury
     def draw(args)
       @game_objects.each {|object| object.draw(args) }
     end
+
+    # Warning: `include` is at the end of the class definition because DR directly calls it and when placed at the start the rest of the class like methods are not yet declared
+    include Inputs
   end
 end
