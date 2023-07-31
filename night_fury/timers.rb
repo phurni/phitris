@@ -61,7 +61,7 @@ module NightFury
 
     def every(duration, options = {}, &block)
       @_timers ||= []
-      @_timers << EveryTimer.new(duration / 16.6666666666666667, block)
+      EveryTimer.new(duration / 16.6666666666666667, block).tap {|timer| @_timers << timer }
     end
 
     def during(duration, options = {}, &block)
@@ -69,7 +69,7 @@ module NightFury
       current_tick_count = Kernel.tick_count
       tick_range = current_tick_count..(current_tick_count + (duration / 16.6666666666666667))
 
-      @_timers << BetweenTimer.new(tick_range, block)
+      BetweenTimer.new(tick_range, block).tap {|timer| @_timers << timer }
     end
   end
 end
