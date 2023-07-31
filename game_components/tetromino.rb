@@ -1,6 +1,6 @@
 module Phitris
   class Tetromino < NightFury::GameObject
-    #TODO: traits :simple_sprite, :timer
+    include NightFury::Timers
     #TODO: include Chingu::Helpers::InputClient
     include Config
     
@@ -20,7 +20,7 @@ module Phitris
       place_on_board
       self.x, self.y = @board.origin.x, @board.origin.y
       
-      0.times do #TODO: every(fall_delay, :name => :falling) do
+      every(fall_delay, :name => :falling) do
         unless fall
           board.fix(self)
           board.collapse(:fall_delay => fall_delay)
