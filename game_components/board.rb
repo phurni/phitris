@@ -74,7 +74,7 @@ module Phitris
         line.each_with_index do |block, pos_x|
           next unless block
           self.color = block
-          args.outputs.sprites << [*to_draw_rect(padding+pos_x*image.width, padding+pos_y*image.height, image.width, image.height), image.path, 0, *color.to_a]
+          args.outputs.sprites << [*to_draw_rect(x+padding+pos_x*image.width, y+padding+pos_y*image.height, image.width, image.height), image.path, 0, *color.to_a]
         end
       end
     end
