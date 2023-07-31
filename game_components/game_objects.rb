@@ -24,10 +24,10 @@ module Phitris
     end
     
     def draw(args)
-      args.outputs.solids << to_draw_rect(x,y,width,height).rect.to_hash.merge(@border_colors.first.to_hash) if @border_colors
+      args.outputs.solids << to_draw_rect(x,y,width,height).rect.to_hash.merge(@border_colors.first.to_h) if @border_colors
       args.outputs.sprites << [*to_draw_rect(x, y, @border_image.width, @border_image.height), @border_image.path] if @border_image
       
-      args.outputs.solids << to_draw_rect(x+padding,y+padding,inside_width,inside_height).rect.to_hash.merge(@background_colors.first.to_hash) if @background_colors
+      args.outputs.solids << to_draw_rect(x+padding,y+padding,inside_width,inside_height).rect.to_hash.merge(@background_colors.first.to_h) if @background_colors
       args.outputs.sprites << [*to_draw_rect(x+padding, y+padding, @background_image.width, @background_image.height), @background_image.path] if @background_image
     end
     

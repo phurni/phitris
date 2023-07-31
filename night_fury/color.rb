@@ -8,7 +8,7 @@ module NightFury
     end
 
     attr_reader :red, :green, :blue, :alpha
-    attr_reader :to_hash, :to_a
+    attr_reader :to_h, :to_a
 
     protected def initialize(*args)
       if args.size == 1
@@ -17,7 +17,7 @@ module NightFury
       else
         @alpha, @red, @green, @blue = args
       end
-      @to_hash = {r: @red, g: @green, b: @blue, a: @alpha}
+      @to_h = {r: @red, g: @green, b: @blue, a: @alpha}
       @to_a = [@alpha, @red, @green, @blue]
     end
 
