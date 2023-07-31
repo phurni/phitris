@@ -1,7 +1,7 @@
 module Phitris
   class Tetromino < NightFury::Sprite
     include NightFury::Timers
-    #TODO: include Chingu::Helpers::InputClient
+    include NightFury::Inputs
     include Config
     
     config image: 'media/block.png', rotator: Phitris::Rotators.all.first, randomizer: Phitris::Randomizers.all.first
