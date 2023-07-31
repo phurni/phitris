@@ -8,11 +8,11 @@ module Phitris
       rewards: {nil => 0, soft_drop: 1, hard_drop: 2, collapse1: 100, collapse2: 300, collapse3: 500, collapse4: 800, bravo: 200 },
       layout: [
         Margin,
-        [Margin, HoldTetromino, Margin],
+        [Margin, {Caption => :hold}, HoldTetromino, Margin, {Caption => :score}, Score, Margin, {Caption => :lines}, Lines, Margin, {Caption => :time}, ElapsedTime, Margin],
         Margin,
-        [Margin, Board, Margin],
+        [Margin, [{Caption => :level}, Level], Board, Margin],
         Margin,
-        [Margin, NextTetrominos, Margin]
+        [Margin, {Caption => :next}, NextTetrominos, Margin]
       ]
     
     

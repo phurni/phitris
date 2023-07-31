@@ -1,28 +1,14 @@
 module Phitris
-  # Patch Chingu, width handling with max_width and background is not correct.
-  class ChinguText < Chingu::Text
-    def width
-      max_width || super
-    end
-  end
-  
-  class Caption < ChinguText
+  class Caption < NightFury::Text
     include Config
     config align: :center, size: 20, color: 0xFF88ffff
-    
-    # Will be set after creation, so re-create the image
-    def max_width=(value)
-      @max_width = value.to_i
-      create_image
-      @max_width
-    end
     
     def initialize(parent, arg, options = {})
       super(parent.config[:captions][arg.to_s], config.merge(options))
     end
   end
 
-  class Value < ChinguText
+  class Value < NightFury::Text
     include Config
     config align: :center, size: 20, format: '%s'
 
@@ -72,8 +58,8 @@ module Phitris
       @value = 0
     end
     
-    def update
-      self.value += $window.milliseconds_since_last_tick
+    def update(args)
+      self.value += 16.6666666666666667 # args.state.milliseconds_since_last_tick
       super
     end
     
