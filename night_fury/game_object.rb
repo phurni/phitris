@@ -39,6 +39,10 @@ module NightFury
     def draw(args)
     end
 
+    def game_state
+      $current_state
+    end
+
     # Helper that converts the 'logical' rect (only the x and y) that uses top-left origin
     # to drawing rect that will be centered on the fixed DR viewport
     def to_draw_rect(x, y, w, h)
