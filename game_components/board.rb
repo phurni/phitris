@@ -1,6 +1,6 @@
 module Phitris
   class Board < Tetrion
-    #TODO: traits :timer
+    include NightFury::Timers
     #TODO: include Chingu::Helpers::InputClient
     include Config
 
@@ -46,10 +46,10 @@ module Phitris
       unless (indexes = complete_lines).empty?
         age, duration = 0, (options[:fall_delay] || 100) / 2
         during(duration) do
-          # fade color of indexes lines to white
-          age += $window.milliseconds_since_last_tick
+          # fade color of indexes lines to transparent
+          age += 16.6666666666666667 # args.state.milliseconds_since_last_tick
           t = [age.to_f / duration, 1.0].min
-          indexes.each {|index| lines[index].map! {|block| block && block.class.from_hsv(block.hue, 1.0-t, block.value) } }
+          indexes.each {|index| lines[index].map! {|block| block && block.with(a: @fixed_tetromino_alpha-(t*@fixed_tetromino_alpha).to_i) } }
         end.then do
           remove_lines_at(indexes)
           game_state.reward(:collapse, indexes.size)
