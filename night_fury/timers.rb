@@ -46,10 +46,17 @@ module NightFury
   end
 
   module Timers
-    def update(args)
+    def self.included(base)
+      base.class_eval do
+        alias_method :update_without_timers, :update
+        alias_method :update, :update_with_timers
+      end
+    end
+
+    def update_with_timers(args)
       @_timers ||= []
       @_timers.each {|timer| timer.tick(args) unless timer.destroyed? }
-      #super # FIXME: Re-enable when Module.prepend will work (instead of Module.include)
+      update_without_timers(args) #super # FIXME: Re-enable when Module.prepend will work (instead of Module.include)
     end
 
     def every(duration, options = {}, &block)
