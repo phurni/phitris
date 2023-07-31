@@ -1,7 +1,7 @@
 module NightFury
   class Timer
-    def then(&block)
-      @then_block = block
+    def and_then(&block)
+      @and_then_block = block
     end
 
     def destroy!
@@ -39,7 +39,7 @@ module NightFury
         @block.call
       end
       if args.state.tick_count > @tick_range.end
-        @then_block.call if @then_block
+        @and_then_block.call if @and_then_block
         destroy!
       end
     end
