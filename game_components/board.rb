@@ -38,7 +38,7 @@ module Phitris
 
     def fix(tetromino)
       tetromino.blocks.each_with_index do |tetromino_line, delta_y|
-        lines[tetromino.position.y+delta_y][tetromino.position.x,tetromino_line.size] = tetromino_line.zip(lines[tetromino.position.y+delta_y][tetromino.position.x,tetromino_line.size]).map {|line| line.compact.first.tap {|color| color.alpha = @fixed_tetromino_alpha if color } }
+        lines[tetromino.position.y+delta_y][tetromino.position.x,tetromino_line.size] = tetromino_line.zip(lines[tetromino.position.y+delta_y][tetromino.position.x,tetromino_line.size]).map {|line| (color = line.compact.first) ? color.with(a: @fixed_tetromino_alpha) : color }
       end
     end
 
