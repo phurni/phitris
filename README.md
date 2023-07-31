@@ -2,11 +2,11 @@
 
 ![tetrominos](http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/All_5_free_tetrominoes.svg/200px-All_5_free_tetrominoes.svg.png)
 
-A Tetris clone written in Ruby with the Gosu and Chingu libraries.
+A Tetris clone written in Ruby with the DragonRuby game toolkit.
 
 It aims to be as concise as possible with a maximum of **Ruby idioms** but still be easily extendable.
 
-Copyright (C) 2014-2015 Pascal Hurni <[https://github.com/phurni](https://github.com/phurni)>
+Copyright (C) 2014-2023 Pascal Hurni <[https://github.com/phurni](https://github.com/phurni)>
 
 Licensed under the [MIT License](http://opensource.org/licenses/MIT).
 
@@ -33,13 +33,13 @@ Pluggable behaviours (✔ Implemented, ✘ Not implemented):
 
 ## Customization
 
-All game graphics and position may be customized through a YAML config file.
+All game graphics and position may be customized ~~through a YAML config file~~.
 
 Running the game with the following command line will use pre-defined configuration
 
     ruby main.rb
     
-Try running the game by passing a config file:
+~~Try running the game by passing a config file:~~
 
     ruby main.rb phitris_example.yml
 
