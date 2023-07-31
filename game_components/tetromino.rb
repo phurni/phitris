@@ -1,5 +1,5 @@
 module Phitris
-  class Tetromino < NightFury::GameObject
+  class Tetromino < NightFury::Sprite
     include NightFury::Timers
     #TODO: include Chingu::Helpers::InputClient
     include Config

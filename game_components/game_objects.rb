@@ -12,7 +12,7 @@ module Phitris
     end
   end
   
-  class Tetrion < NightFury::GameObject
+  class Tetrion < NightFury::Sprite
     attr_reader :padding
     
     def initialize(options = {})

@@ -1,7 +1,5 @@
 module NightFury
   class GameObject
-    attr_accessor :x, :y, :width, :height, :color, :image
-
     def self.create(*args, &block)
       instance = new(*args, &block)
       $current_state.add_game_object(instance)
@@ -9,25 +7,10 @@ module NightFury
     end
 
     def initialize(options = {})
-      super
-      self.image =  options[:image] if options[:image]
-      self.color =  options[:color] || NightFury::Color::WHITE
-      self.x =      options[:x] || 0
-      self.y =      options[:y] || 0
-      self.width =  options[:width] || 0
-      self.height = options[:height] || 0
     end
 
     def destroy!
       $current_state.remove_game_object(self)
-    end
-
-    def image=(object)
-      @image = NightFury::Image.from(object)
-    end
-
-    def color=(object)
-      @color = NightFury::Color.from(object)
     end
 
     def setup(args)
