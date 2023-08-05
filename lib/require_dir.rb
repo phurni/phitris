@@ -6,11 +6,10 @@ end
 
 # DragonRuby specific helper functions used by `require_dir`
 def list_files(dir)
-  $gtk.exec("ls #{dir}").split("\n")
+  $gtk.list_files(normalize_game_path(dir))
 end
 
-ABSOLUTE_GAME_PATH = File.expand_path($gtk.get_game_dir)
 def normalize_game_path(*paths)
-  absolute_path = File.expand_path(File.join(*paths))
-  absolute_path.delete_prefix(ABSOLUTE_GAME_PATH)
+  # remove any '.', './something' or 'something/.'. Warning: DOES NOT process '..'
+  paths.map {|path| path.split('/').reject {|item| item == '.'}.join('/') }.join('/')
 end
